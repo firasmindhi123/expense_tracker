@@ -1,0 +1,17 @@
+const express=require('express')
+const router=express.Router()
+const controllerUser=require('../controller/user')
+const expensecontroller=require('../controller/user_expense')
+const authorize=require('../authenticatation')
+
+router.get('/signup',controllerUser.signupfile)
+router.post('/signup',controllerUser.signup)
+router.get('/login',controllerUser.loginfile)
+router.post('/login',controllerUser.login)
+router.get('/expense',expensecontroller.expensefile)
+router.post('/expense',authorize.authenticate,expensecontroller.expense)
+router.get('/detail',authorize.authenticate,expensecontroller.getexpense)
+router.delete('/delete/:id',authorize.authenticate,expensecontroller.deleteExpense)
+router.get('/download',authorize.authenticate,expensecontroller.download)
+router.get('/file',authorize.authenticate,expensecontroller.download_file)
+module.exports=router
