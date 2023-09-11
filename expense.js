@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 
 // get config vars
 dotenv.config();
-const sequelize=require('../util/database')
+const sequelize=require('./util/database')
 const user=require('./model/user')
 const payment=require('./router/payment')
 const expense=require('./model/expense_model')

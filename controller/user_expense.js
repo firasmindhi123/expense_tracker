@@ -1,6 +1,6 @@
-const root_dir=require('../../util/path')
 const path=require('path')
-const sequelize=require('../../util/database')
+const root_dir=require('../util/path')
+const sequelize=require('../util/database')
 const expense_model=require('../model/expense_model')
 const model=require('../model/user')
 const userService=require('../services/userservice')

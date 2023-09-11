@@ -1,6 +1,6 @@
 const model=require('../model/user')
 const expense_model=require('../model/expense_model')
-const sequelize = require('../../util/database')
+const sequelize = require('../util/database')
 
 
 exports.leadership=async(req,res)=>{

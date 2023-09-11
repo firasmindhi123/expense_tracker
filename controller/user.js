@@ -1,4 +1,4 @@
-const root_dir=require('../../util/path')
+const root_dir=require('../util/path')
 const path=require('path')
 const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
