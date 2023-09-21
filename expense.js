@@ -54,5 +54,5 @@ file_download.belongsTo(user);
 
 sequelize.sync().then(result=>{
    
-    app.listen(process.env.PORT_NO||4000)
+    app.listen(4000)
 } ).catch(err=>console.log(err))
