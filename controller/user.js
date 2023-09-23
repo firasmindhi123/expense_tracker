@@ -19,9 +19,7 @@ function IsStringInvalid(str)
 function generateAccesstoken(id,ispremium){
     return jwt.sign({userid:id,ispremium},'securatewq')
   }
-exports.signupfile=(req,res,next)=>{
-    res.sendFile(path.join(root_dir,'views','index.html'))               
-}
+
 exports.signup=async(req,res,next)=>{
     try{
     const name=req.body.username
@@ -48,9 +46,7 @@ res.status(500).json({error:err})
     
 
 }
-exports.loginfile=(req,res,next)=>{
-    res.sendFile(path.join(root_dir,'views','login.html'))
-}
+
 exports.login=async(req,res)=>{
     try{
 

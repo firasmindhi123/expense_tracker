@@ -23,9 +23,7 @@ function IsStringInvalid(str)
         return false
     }
 }
-exports.expensefile=(req,res)=>{
-    res.sendFile(path.join(root_dir,'views','expense.html')) 
-}
+
 exports.expense=async(req,res)=>{
     const t = await sequelize.transaction();
     try{
