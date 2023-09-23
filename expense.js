@@ -39,7 +39,7 @@ app.use('/premium',leader)
 app.use(resetPasswordRoutes)
 app.use((req,res)=>{
     console.log(req.url)
-res.sendFile(path.join(__dirname,`public/user/${req.url}`))
+res.sendFile(path.join(__dirname,`public/${req.url}`))
 })
 
 user.hasMany(expense)
