@@ -13,7 +13,7 @@ form.addEventListener('submit', onsubmit)
     }
 
 
- let response =await axios.post("http://localhost:4000/user/login",my_obj)
+ let response =await axios.post("http://51.20.4.1:4000/user/login",my_obj)
   localStorage.setItem('token',response.data.token)
      window.location.href="expense"
    

@@ -13,7 +13,7 @@ function onsubmit(e)
  }
  const token=localStorage.getItem('token')
  
- axios.post("http://localhost:4000/user/expense",my_obj,{headers:{"Authorization":token}}).then((response)=>{
+ axios.post("http://51.20.4.1:4000/user/expense",my_obj,{headers:{"Authorization":token}}).then((response)=>{
   
  
   listproduct(response.data.userdata)}).catch((err)=>showerr(err))
@@ -32,7 +32,7 @@ function leadership()
   inputElent.value='show leadership'
   inputElent.onclick=async()=>{
     const token=localStorage.getItem('token')
-const userleaderboard=await axios.get('http://localhost:4000/premium/leadership',{headers:{"Authorization":token}})
+const userleaderboard=await axios.get('http://51.20.4.1:4000/premium/leadership',{headers:{"Authorization":token}})
     
     const leaderele=document.getElementById('leadership')
     leaderele.innerHTML+='<h2>leadership board</h2>'
@@ -64,7 +64,7 @@ window.addEventListener("DOMContentLoaded",()=>{
   const page=objectUrl.get('page')||1
   console.log(page)
   const limit=5
-  axios.get(`http://localhost:4000/user/detail?page=${page}&&limit=${limit}`,{headers:{"Authorization":token}}).then((response)=>{
+  axios.get(`http://51.20.4.1:4000/user/detail?page=${page}&&limit=${limit}`,{headers:{"Authorization":token}}).then((response)=>{
     for(var i=0;i<response.data.products.length;i++){
       listproduct(response.data.products[i])
 
@@ -122,7 +122,7 @@ function showpagination({
 function getProducts(page){
   const token=localStorage.getItem('token')
   const limit=5
-  axios.get(`http://localhost:4000/user/detail?page=${page}&&limit=${limit}`,{headers:{"Authorization":token}}).then((response)=>{
+  axios.get(`http://51.20.4.1:4000/user/detail?page=${page}&&limit=${limit}`,{headers:{"Authorization":token}}).then((response)=>{
     let pt =document.getElementById('listofitem');
     pt.innerHTML=''
    for(var i=0;i<response.data.products.length;i++)
@@ -140,7 +140,7 @@ function getProducts(page){
  function deleteuser(userId )
 {
   const token=localStorage.getItem('token')
-  axios.delete(`http://localhost:4000/user/delete/${userId}`,{headers:{"Authorization":token}}).then((response)=>{
+  axios.delete(`http://51.20.4.1:4000/user/delete/${userId}`,{headers:{"Authorization":token}}).then((response)=>{
     removeuser(userId) 
     
 }
@@ -167,14 +167,14 @@ function removeuser(userId){
  
   document.getElementById('rzp_button').onclick=async function(e){
     const token =localStorage.getItem('token')
-    const response=await axios.get('http://localhost:4000/expense/pay',{headers:{'Authorization':token}})
+    const response=await axios.get('http://51.20.4.1:4000/expense/pay',{headers:{'Authorization':token}})
     console.log(response)
     var options={
     "key":response.data.key_id,
     "order_id":response.data.order.id,
     
     "handler":async function(response){
-      const res=await axios.post("http://localhost:4000/expense/traction",{
+      const res=await axios.post("http://51.20.4.1:4000/expense/traction",{
         order_id:options.order_id,
         payment_id:response.razorpay_payment_id},{headers:{'Authorization':token}})
         alert('you unlock premium')
@@ -193,7 +193,7 @@ function removeuser(userId){
     rzp1.on('payment.failed',async function(response){
 
     console.log(response)
-    await axios.post("http://localhost:4000/expense/failtraction",{
+    await axios.post("http://51.20.4.1:4000/expense/failtraction",{
         order_id:options.order_id,
         payment_id:response.razorpay_payment_id},{headers:{'Authorization':token}})
     alert('something went wrong')
@@ -203,7 +203,7 @@ function removeuser(userId){
   document.getElementById('download').onclick=async function(e)
   {
     let token =localStorage.getItem('token')
-    axios.get('http://localhost:4000/user/download', { headers: {"Authorization" : token} })
+    axios.get('http://51.20.4.1:4000/user/download', { headers: {"Authorization" : token} })
     .then((response) => {
         if(response.status === 200){
             //the bcakend is essentially sending a download link

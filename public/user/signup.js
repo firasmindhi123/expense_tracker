@@ -15,13 +15,13 @@ async function onsubmit(e)
 
 
 
- let response= await axios.post("http://localhost:4000/user/signup",my_obj)
+ let response= await axios.post("http://51.20.4.1:4000/user/signup",my_obj)
  if(response.status===201)
  {
   window.location.href="login"
  }
  else{
- throw new Error('login.html')
+ throw new Error()
  }
 }catch(err){
   document.body.innerHTML+=`<div style="color:red;">${err}</div>`
