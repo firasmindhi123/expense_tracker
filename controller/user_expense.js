@@ -52,14 +52,18 @@ exports.expense=async(req,res)=>{
 }
 exports.getexpense=async(req,res,next)=>{
     try{
-        console.log(req.query)
+        console.log(req.user.query)
        
       const page = +req.query.page||1
       const pagesize =+req.query.limit||10
       let totalitem
-      data1=await expense_model.count()
+      data1=await expense_model.count({where:{asadId:`${req.user.id}`}})
+      console.log(data1)
       totalitem=data1;
    data=  await expense_model.findAll({
+        where:{
+          asadId:`${req.user.id}`
+        },
         offset:(page-1)*pagesize,
         limit:pagesize
       })

@@ -32,7 +32,7 @@ app.use(morgan('combined',{stream:AccessLogstream}))
 
 app.use(bodyparse.urlencoded({extended:false}))
 app.use(bodyparse.json())
-app.use(express.static(path.join(__dirname,'public')))
+
 app.use('/user',asad)
 app.use('/expense',payment)
 app.use('/premium',leader)

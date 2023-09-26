@@ -34,7 +34,9 @@ exports.signup=async(req,res,next)=>{
  await model.create({
         name,
         email,
-        password:hash
+        password:hash,
+        totalExpese:0
+
     })
     res.status(201).json({message:"successs"})
     })
